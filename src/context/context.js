@@ -16,7 +16,7 @@ class ProductProvider extends Component {
     cartItems: 0,
     cartSubTotal: 0,
     cartTax: 0,
-    carTotal: 0,
+    cartTotal: 0,
     storeProducts: [],
     filteredProducts: [],
     featuredProducts: [],
@@ -111,11 +111,13 @@ class ProductProvider extends Component {
   //add totals
   addTotals = () => {
     const totals = this.getTotals();
-    this.setState({
-      cartItems: totals.cartItems,
-      cartSubTotal: totals.subTotal,
-      cartTax: totals.tax,
-      cartTotal: totals.total
+    this.setState(() => {
+      return {
+        cartItems: totals.cartItems,
+        cartSubTotal: totals.subTotal,
+        cartTax: totals.tax,
+        cartTotal: totals.total
+      };
     });
   };
   // sync storage
